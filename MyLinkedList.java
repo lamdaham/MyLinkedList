@@ -51,7 +51,19 @@ public class MyLinkedList{
 		}
 		return(changeNode.setData(value));
 	}
-	
-	public String toString();
+
+	public String toString(){
+		String output = "[";
+		int counter = 0;
+		Node node = this.start;
+		while(counter<size) {
+			output += node.getValue() + ", ";
+			node = node.getNext(); 
+			counter++;
+		}
+		output = output.substring(0,(output.length()-3));
+		output += "]";
+		return output;
+	}
 	//Any helper method that returns a Node object MUST BE PRIVATE!
 }
