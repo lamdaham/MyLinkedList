@@ -11,12 +11,13 @@ public class MyLinkedList{
 	}
 	public boolean add(String value){
 		Node element = new Node(value);
-		element.setPrev(this.end);
 		if (size==0) {
 			this.start = element;
 			this.end = element;
 		}
+		this.end = element;
 		size++;
+		return element.setPrev(this.end);
 	}
 	public boolean add(int index, String value){
 		if (this.start != null) {
@@ -28,9 +29,9 @@ public class MyLinkedList{
 				counter++;
 			}
 			element.setNext(prevNode.getNext());
-			prevNode.setNext(element);
+			return prevNode.setNext(element);
 		} else {
-			add(value);
+			return add(value);
 		}
 	}
 	public String get(int index){

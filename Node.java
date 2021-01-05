@@ -7,24 +7,27 @@ public class Node{
 		this.prev = null;
 	}
 	//write get/set methods for all three instance variables.
-	public static void setNext(Node index) {
+	public boolean setNext(Node index) {
 		this.next = index;
+		return true;
 	}
-	public static void setPrev(Node index) {
+	public boolean setPrev(Node index) {
 		this.prev = index;
+		return true;
 	}
-	public static void setNext(String element) {
+	public String setData(String element) {
 		this.data = element;
+		return this.data;
 	}
 
 
-	public static Node getNext() {
+	public Node getNext() {
 		return this.next;
 	}
-	public static Node getPrev() {
+	public Node getPrev() {
 		return this.prev;
 	}
-	public static String getData() {
+	public String getData() {
 		return this.data;
 	}
 
