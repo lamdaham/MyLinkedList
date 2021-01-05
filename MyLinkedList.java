@@ -40,9 +40,18 @@ public class MyLinkedList{
 			output = output.getNext();
 			counter++;
 		}
-		return output;
+		return output.getValue();
 	}
-	public String set(int index, String value);
+	public String set(int index, String value) {
+		Node changeNode = this.start;
+		int counter = 0;
+		while(counter<index) {
+			changeNode = changeNode.getNext();
+			counter++;
+		}
+		return(changeNode.setData(value));
+	}
+	
 	public String toString();
 	//Any helper method that returns a Node object MUST BE PRIVATE!
 }
