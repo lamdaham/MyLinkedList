@@ -33,7 +33,15 @@ public class MyLinkedList{
 			add(value);
 		}
 	}
-	public String get(int index);
+	public String get(int index){
+		Node output = this.start;
+		int counter = 0;
+		while(counter<index) {
+			output = output.getNext();
+			counter++;
+		}
+		return output;
+	}
 	public String set(int index, String value);
 	public String toString();
 	//Any helper method that returns a Node object MUST BE PRIVATE!
