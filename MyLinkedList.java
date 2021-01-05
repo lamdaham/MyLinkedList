@@ -32,7 +32,10 @@ public class MyLinkedList{
 
 
 	public boolean add(int index, String value){
-		if (this.start != null || index<size) {
+		if (index<0||index>this.size) {
+			throw new IndexOutOfBoundsException();
+		}
+		if (this.start != null) {
 			Node element = new Node(value);
 			Node prevNode = this.start;
 			int counter = 0;
@@ -51,6 +54,9 @@ public class MyLinkedList{
 
 
 	public String get(int index){
+		if (index<0||index>this.size) {
+			throw new IndexOutOfBoundsException();
+		}
 		Node output = this.start;
 		int counter = 0;
 		while(counter<index) {
@@ -63,6 +69,9 @@ public class MyLinkedList{
 
 
 	public String set(int index, String value) {
+		if (index<0||index>this.size) {
+			throw new IndexOutOfBoundsException();
+		}
 		Node changeNode = this.start;
 		int counter = 0;
 		while(counter<index) {
