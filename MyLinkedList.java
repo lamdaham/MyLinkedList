@@ -1,7 +1,11 @@
 public class MyLinkedList{
 	private int size;
 	private Node start,end;  
-	public MyLinkedList(){/*create a constructor*/}
+	public MyLinkedList(){
+		this.size = 0;
+		this.start = 0;
+		this.end = 0;
+	}
 	public int size();
 	public boolean add(String value);
 	public boolean add(int index, String value);
