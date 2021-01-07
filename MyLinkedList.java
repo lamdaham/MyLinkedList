@@ -96,8 +96,8 @@ public class MyLinkedList{
 
 	public String remove(int index) {
 		int counter = 0; 
-		int deleted = this.start;
-		if (index = this.size-1) {
+		Node deleted = this.start;
+		if (index == this.size-1) {
 			this.end = (this.end).getPrev();
 			(this.end).setNext(null);
 		} else if (index == 0) {
@@ -113,6 +113,16 @@ public class MyLinkedList{
 		}
 		return deleted.getData();
 
+	}
+
+
+	public void extend(MyLinkedList other) {
+		(this.end).setNext(other.start);
+		this.end = other.end;
+		this.size += other.size();
+		other.start = null;
+		other.end = null;
+		other.size = 0;
 	}
 
 
