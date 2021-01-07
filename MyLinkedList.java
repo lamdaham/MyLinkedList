@@ -24,6 +24,7 @@ public class MyLinkedList{
 			this.end = element;
 		}
 		size++;
+		element.setPrev(this.end);
 		(this.end).setNext(element);
 		this.end = element;
 		return true;
@@ -38,14 +39,18 @@ public class MyLinkedList{
 		if (this.start != null) {
 			Node element = new Node(value);
 			Node prevNode = this.start;
-			if (index != 0) {
+			if (index == this.size) {
+				add(value);
+			} else if (index != 0) {
 				int counter = 0;
 				while(counter<index-1) {
 					prevNode = prevNode.getNext();
 					counter++;
 				}
 				size++;
+				element.setPrev(prevNode);
 				element.setNext(prevNode.getNext());
+				(prevNode.getNext()).setPrev(element);
 				prevNode.setNext(element);
 			} else {
 				this.start = element;
@@ -88,6 +93,27 @@ public class MyLinkedList{
 	}
 
 
+
+	public String remove(int index) {
+		int counter = 0; 
+		int deleted = this.start;
+		if (index = this.size-1) {
+			this.end = (this.end).getPrev();
+			(this.end).setNext(null);
+		} else if (index == 0) {
+			this.start = (this.start).getNext();
+			(this.start).setPrev(null);
+		} else {
+			while (counter < index) {
+				deleted = deleted.getNext();
+				counter++;
+			}
+			(deleted.getNext()).setPrev(deleted.getPrev());
+			(deleted.getPrev()).setNext(deleted.getNext());
+		}
+		return deleted.getData();
+
+	}
 
 
 	public String toString(){
