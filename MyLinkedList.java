@@ -111,6 +111,7 @@ public class MyLinkedList{
 			(deleted.getNext()).setPrev(deleted.getPrev());
 			(deleted.getPrev()).setNext(deleted.getNext());
 		}
+		size--;
 		return deleted.getData();
 
 	}
