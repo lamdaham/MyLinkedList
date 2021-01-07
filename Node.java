@@ -16,8 +16,9 @@ public class Node{
 		return true;
 	}
 	public String setData(String element) {
+		String p = this.data;
 		this.data = element;
-		return this.data;
+		return p;
 	}
 
 
