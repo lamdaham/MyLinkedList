@@ -95,6 +95,9 @@ public class MyLinkedList{
 
 
 	public String remove(int index) {
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException();
+		}
 		int counter = 0; 
 		Node deleted = this.start;
 		if (index == this.size-1) {
@@ -134,6 +137,22 @@ public class MyLinkedList{
 		while(counter<size) {
 			output += node.getData() + ", ";
 			node = node.getNext(); 
+			counter++;
+		}
+		if (output.length()>1) {
+			output = output.substring(0,(output.length()-2));	
+		}
+		output += "]";
+		return output;
+	}
+
+	public String toStringReversed() {
+		String output = "[";
+		int counter = 0;
+		Node node = this.end;
+		while(counter<size) {
+			output += node.getData() + ", ";
+			node = node.getPrev(); 
 			counter++;
 		}
 		if (output.length()>1) {
