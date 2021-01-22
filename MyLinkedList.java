@@ -121,12 +121,21 @@ public class MyLinkedList{
 
 
 	public void extend(MyLinkedList other) {
-		(this.end).setNext(other.start);
-		this.end = other.end;
-		this.size += other.size();
-		other.start = null;
-		other.end = null;
-		other.size = 0;
+		if (size != 0 && other.size != 0) {
+			(this.end).setNext(other.start);
+			this.end = other.end;
+			this.size += other.size();
+			other.start = null;
+			other.end = null;
+			other.size = 0;
+		} else if (size == 0 && other.size != 0) {
+			this.start = other.start;
+			this.end = other.end;
+			this.size = other.size;
+			other.start = null;
+			other.end = null;
+			other.size = 0;
+		}
 	}
 
 
@@ -147,19 +156,17 @@ public class MyLinkedList{
 	}
 
 	public String toStringReversed() {
-		String output = "[";
-		int counter = 0;
-		Node node = this.end;
-		while(counter<size) {
-			output += node.getData() + ", ";
-			node = node.getPrev(); 
-			counter++;
-		}
-		if (output.length()>1) {
-			output = output.substring(0,(output.length()-2));	
-		}
-		output += "]";
-		return output;
+		Node current = end;
+	    String ans = "[";
+	    while(current != null){
+	      ans += current.getData();
+	      current = current.getPrev();
+	      if(current!= null){
+	        ans += ", ";
+	      }
+	      System.out.println(current.getData());
+	    }
+	    return ans + "]";
 	}
 	//Any helper method that returns a Node object MUST BE PRIVATE!
 }
